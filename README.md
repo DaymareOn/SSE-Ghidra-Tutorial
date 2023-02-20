@@ -32,10 +32,13 @@ and my project name as "SE1597".
 My steamlessed executable is renamed SkyrimSE1597Steamlessed.exe and put into C:\Games\Ghidra\   
 That way, if I want to recreate another project based on it, I know exactly where it is and which executable it is.
 
-### Import your executables into your ghidra project
+### Import the required files into your ghidra project
 
 Add to your executables folder (C:\Games\Ghidra for me) the binkw64.dll that you'll find in your skyrim executable folder.   
-If you have installed an ENB, you might want to add too the d3d11.dll provided with your enb executable, that you should have installed in your skyrim executable folder.
+If you have installed an ENB, you might want to add too the d3d11.dll provided with your enb executable, that you should have installed in your skyrim executable folder.   
+Add the pdb file found in the archive available here in the optional files:
+https://www.nexusmods.com/skyrimspecialedition/mods/59818?tab=files   
+This reverse engineered PDB file will help identify SkyrimSSE addresses and attribute names.
 
 Then import in this order binkw64.dll, d3d11.dll if you wish, and your steamlessed skyrim executable.
 
@@ -47,10 +50,27 @@ About the messages:
 - "Skipping library which is the wrong architecture:": you can ignore these messages.
 - "failed to create WEVTResource at [address]: Failed to resolve data length for WEVTResource": I have no idea what it means. ***If you know, please let me know.***
 
+Right-click on the exe -> Open with -> CodeBrowser.
+Select ‘No’ when asked to analyze the program.   
+In CodeBrowser, File -> Load PDB File.   
+There is a warning below on the "Config..." button, click on it and set your symbols folder. I've set mine as "C:\Games\Ghidra\SE 1.5.97 symbols".   
+In PDB location, select your pdb file, then click on Load.   
+
+About the messages:
+- There are warnings about ghidra not being able to set things as void, and using undefined instead. Ignore them.
+
 *To Be Confirmed:*
 - *should we import the system dlls like kernel32.dll that ghidra complains about having not found them?*
 - *Should we use other options than the default options when importing a file?*
+- *I wonder about the "Config..." button warning. Should we have configured ghidra a certain way first? Check in the ghidra doc.*
+- *I wonder about the void/undefined warnings. Is it really ok to just ignore them?*
 ***If you know the answers to these questions, please let me know.***
+
+### Analyze the skyrim executable
+
+In CodeBrowser, Analysis -> Auto-Analyze   
+Use the defaults option, and launch the analysis. Wait (around 10 minutes on my computer (10900KF cpu)).   
+File -> Save all.
 
 ## Notes
 
