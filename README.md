@@ -32,6 +32,26 @@ and my project name as "SE1597".
 My steamlessed executable is renamed SkyrimSE1597Steamlessed.exe and put into C:\Games\Ghidra\   
 That way, if I want to recreate another project based on it, I know exactly where it is and which executable it is.
 
+### Import your executables into your ghidra project
+
+Add to your executables folder (C:\Games\Ghidra for me) the binkw64.dll that you'll find in your skyrim executable folder.   
+If you have installed an ENB, you might want to add too the d3d11.dll provided with your enb executable, that you should have installed in your skyrim executable folder.
+
+Then import in this order binkw64.dll, d3d11.dll if you wish, and your steamlessed skyrim executable.
+
+To import them:   
+File -> Import -> select your file.   
+Choose the default options, then let ghidra import the file.
+
+About the messages:
+- "Skipping library which is the wrong architecture:": you can ignore these messages.
+- "failed to create WEVTResource at [address]: Failed to resolve data length for WEVTResource": I have no idea what it means. ***If you know, please let me know.***
+
+*To Be Confirmed:*
+- *should we import the system dlls like kernel32.dll that ghidra complains about having not found them?*
+- *Should we use other options than the default options when importing a file?*
+***If you know the answers to these questions, please let me know.***
+
 ## Notes
 
 - Use a 1.5.97 build as base.
