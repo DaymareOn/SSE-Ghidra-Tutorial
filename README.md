@@ -1,8 +1,15 @@
 # SSE-Ghidra-Tutorial
 
-Tutorial
+## Tutorial
 
-Notes
+### Install Ghidra
+
+Ghidra is an open-source java softwrae retro-engineering suite of tools.
+It will work on Windows, Linux, MacOS.
+https://ghidra-sre.org/
+
+## Notes
+
 - Use a 1.5.97 build as base.
 - Version track to other versions (1.6.640, 1.6.353, VR)
 - Import the pdbs posted with Crashlogger to get the latest labels including what -- posted, into Ghidra. That will give names.
